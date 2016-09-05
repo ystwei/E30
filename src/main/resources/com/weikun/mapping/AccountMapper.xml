@@ -148,6 +148,17 @@
       <include refid="Example_Where_Clause" />
     </if>
   </select>
+
+  <select id="login" parameterType="map" resultMap="BaseResultMap" >
+
+    select *
+    from account
+    where username=#{record.username,jdbcType=VARCHAR} and
+           password=#{record.password,jdbcType=VARCHAR}
+
+
+  </select>
+
   <update id="updateByExampleSelective" parameterType="map" >
     update account
     <set >

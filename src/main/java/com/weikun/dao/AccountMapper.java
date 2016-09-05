@@ -20,6 +20,8 @@ public interface AccountMapper {
 
     Account selectByPrimaryKey(String username);
 
+    Account login(@Param("record") Account record);
+
     int updateByExampleSelective(@Param("record") Account record, @Param("example") AccountExample example);
 
     int updateByExample(@Param("record") Account record, @Param("example") AccountExample example);

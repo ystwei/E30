@@ -1,6 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 
-	<%@include file="../commons/top.ftl" %>
+
+	<#include "commons/top.ftl" encoding="utf-8" parse="true">
 
 		<table border="0" cellspacing="2" cellpadding="0" width="100%">
 			<tr>
@@ -119,6 +119,6 @@
 		</table>
 
 		<br>
-<%@include file="../commons/banner.jsp" %>		
-<%@include file="../commons/bottom.ftl" %>
+
+	<#include "commons/bottom.ftl" encoding="utf-8" parse="true">
 

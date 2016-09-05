@@ -4,7 +4,7 @@
   <head>
   		<TITLE></TITLE>
 		<META content="text/html; charset=utf-8" http-equiv=Content-Type>
-		
+		<#assign ppath=request.contextPath/>
   </head>
   
  <BODY bgColor=white >

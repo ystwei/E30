@@ -1,0 +1,14 @@
+account
+ username *
+ password
+ email
+ xm
+ address
+profile
+ username *
+ langpref
+ catid <<
+Category
+ catid *
+ name
+ descn

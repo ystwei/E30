@@ -1,14 +1,22 @@
 package com.weikun.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Account {
+    private Profile profile;
+    @NotEmpty
+    private String repassword;
+    @NotEmpty
     private String username;
-
+    @NotEmpty
     private String password;
-
+    @NotEmpty
+    @Email
     private String email;
-
+    @NotEmpty
     private String xm;
-
+    @NotEmpty
     private String address;
 
     public String getUsername() {
@@ -49,5 +57,21 @@ public class Account {
 
     public void setAddress(String address) {
         this.address = address == null ? null : address.trim();
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
+    public String getRepassword() {
+        return repassword;
+    }
+
+    public void setRepassword(String repassword) {
+        this.repassword = repassword;
     }
 }

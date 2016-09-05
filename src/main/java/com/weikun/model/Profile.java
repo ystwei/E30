@@ -4,7 +4,7 @@ public class Profile {
     private String username;
 
     private String langpref;
-
+    private Category category;
     private String catid;
 
     public String getUsername() {
@@ -29,5 +29,13 @@ public class Profile {
 
     public void setCatid(String catid) {
         this.catid = catid == null ? null : catid.trim();
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
