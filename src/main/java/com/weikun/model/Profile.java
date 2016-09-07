@@ -3,7 +3,7 @@ package com.weikun.model;
 public class Profile {
     private String username;
 
-    private String langpref;
+    private String lang;
     private Category category;
     private String catid;
 
@@ -15,13 +15,6 @@ public class Profile {
         this.username = username == null ? null : username.trim();
     }
 
-    public String getLangpref() {
-        return langpref;
-    }
-
-    public void setLangpref(String langpref) {
-        this.langpref = langpref == null ? null : langpref.trim();
-    }
 
     public String getCatid() {
         return catid;
@@ -37,5 +30,13 @@ public class Profile {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
     }
 }

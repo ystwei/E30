@@ -8,7 +8,18 @@ profile
  username *
  langpref
  catid <<
-Category
+category
  catid *
  name
  descn
+product
+  productid*
+  catid<<<
+  name
+  descn
+  pic：它的图片位置
+item
+    itemid*
+    productid<<<
+    listprice:单价
+    attr1:描述

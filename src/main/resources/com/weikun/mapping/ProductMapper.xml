@@ -6,7 +6,28 @@
     <result column="catid" property="catid" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="descn" property="descn" jdbcType="VARCHAR" />
+
+    <association property="category" column="catid" select="queryCatByPro">
+
+    </association>
+    <collection property="ilist" javaType="ArrayList"
+                ofType="com.weikun.model.Item"
+                column="productid" select="queryItemsByPro" >
+    </collection>
   </resultMap>
+
+  <select id="queryItemsByPro" resultMap="com.weikun.dao.ItemMapper.BaseResultMap">
+
+    select *
+    from item
+    where productid=#{productid,jdbcType=VARCHAR}
+
+
+
+  </select>
+  <select id="queryCatByPro" resultMap="com.weikun.dao.CategoryMapper.BaseResultMap">
+      SELECT * from category where catid=#{catid,jdbcType=VARCHAR}
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

@@ -60,9 +60,11 @@ public class AccountController {
             queryC(model);
             return "shop/register.ftl";
         }
-
-
-        return "shop/login.ftl";
+        account.getProfile().setUsername(account.getUsername());
+        if(service.register(account)>0){//注册成功
+            return "shop/login.ftl";
+        }
+        return null;
 
     }
     @RequestMapping(value="/login")
@@ -70,6 +72,7 @@ public class AccountController {
         Account user=service.login(account);
         if(user!=null){//登录成功
             map.put("username",user.getUsername());
+
             return "shop/main.ftl";
         }else{
             map.put("error","登录失败，请重新登录！");

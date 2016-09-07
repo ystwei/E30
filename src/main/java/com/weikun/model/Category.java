@@ -1,7 +1,10 @@
 package com.weikun.model;
 
+import java.util.List;
+
 public class Category {
     private String catid;
+    private List<Product> plist;
 
     private String name;
 
@@ -29,5 +32,13 @@ public class Category {
 
     public void setDescn(String descn) {
         this.descn = descn == null ? null : descn.trim();
+    }
+
+    public List<Product> getPlist() {
+        return plist;
+    }
+
+    public void setPlist(List<Product> plist) {
+        this.plist = plist;
     }
 }

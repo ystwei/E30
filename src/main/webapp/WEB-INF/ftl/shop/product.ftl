@@ -1,6 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 
-<%@include file="../commons/top.ftl" %>
+
+<#include "commons/top.ftl" encoding="utf-8" parse="true" >
 
 		
 
@@ -24,26 +24,36 @@
 		cellpadding="3">
 		<tr bgcolor="#CCCCCC">
 			<td>
-			
+				产品编号
 			</td>
 			<td>
-				
+                产品名称
 			</td>
+            <td>
+                产品描述
+            </td>
 		</tr>
-			
+			<#list plist as pro >
+
+
+
 			
 				<tr bgcolor="#FFFF88">
 				<td>
-					<b><a href="viewproductlist.xhtml">
+					<b><a href="${ppath}/pet/queryIS/p/${pro.productid}">
+							${pro.productid}
 							</a>
 					</b>
 				</td>
 				<td>
-					
+				${pro.name}
 				</td>
+                    <td>
+					${pro.descn}
+                    </td>
 			</tr>
-			
-			
+
+			</#list>
 			
 		
 			
@@ -55,4 +65,4 @@
 			</td>
 		</tr>
 	</table>
-<%@include file="../commons/bottom.ftl" %>
+<#include "commons/bottom.ftl" encoding="utf-8" parse="true" >

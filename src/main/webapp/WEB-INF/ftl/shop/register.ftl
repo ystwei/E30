@@ -87,7 +87,7 @@
 
                                 <TD>
                                     你的语言
-                                    <select id="lan" name="profile.langpref">
+                                    <select id="lan" name="profile.lang">
                                         <option value="eng">
                                             英语
 
@@ -104,7 +104,7 @@
                                     你喜爱的宠物
 
 
-                                    <select id="catid" name="profile.category.catid">
+                                    <select id="catid" name="profile.catid">
                                         <#list clist as category>
 
                                             <option value="${category.catid}">

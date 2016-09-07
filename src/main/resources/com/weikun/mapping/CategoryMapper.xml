@@ -5,7 +5,21 @@
     <id column="catid" property="catid" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="descn" property="descn" jdbcType="VARCHAR" />
+    <collection property="plist" javaType="ArrayList"
+                ofType="com.weikun.model.Product"
+                column="catid" select="queryProByCate" >
+    </collection>
   </resultMap>
+  <select id="queryProByCate" resultMap="com.weikun.dao.ProductMapper.BaseResultMap">
+
+      select *
+      from product
+      where catid=#{catid,jdbcType=VARCHAR}
+
+
+
+  </select>
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

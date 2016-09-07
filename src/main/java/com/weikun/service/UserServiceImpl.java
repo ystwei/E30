@@ -12,9 +12,24 @@ import com.weikun.dao.*;
 public class UserServiceImpl implements IUserService{
     @Autowired
     private AccountMapper dao;
-
+    @Autowired
+    private ProfileMapper pdao;
     public Account login(Account record) {
 
         return dao.login(record);
     }
+
+    public int register(Account record) {
+        try {
+            dao.insert(record);
+            pdao.insert(record.getProfile());
+            return 1;
+        }catch (Exception e){
+           e.printStackTrace();
+        }
+
+
+        return 0;
+    }
+
 }

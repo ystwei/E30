@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class Item {
     private String itemid;
-
+    private Product product;
     private String productid;
 
     private BigDecimal listprice;
@@ -111,5 +111,13 @@ public class Item {
 
     public void setAttr5(String attr5) {
         this.attr5 = attr5 == null ? null : attr5.trim();
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

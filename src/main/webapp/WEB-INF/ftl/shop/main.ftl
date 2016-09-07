@@ -22,16 +22,26 @@
 													<tbody>
 														<tr>
 															<td>
-																<b><i><font size="2" color="BLACK"></font></i></b>
+																<b><i><font size="2" color="BLACK">
+
+																		<#if username?exists>
+																		    欢迎您：${username}
+																		<#else>
+                                                                            欢迎游客！
+
+																		</#if>
+
+																</font></i></b>
 																&nbsp;
 															</td>
 														</tr>
 														<tr>
 															<td>
+																<a href="${ppath}/pet/queryP/c/FISH">
 															<img
 																		border="0" src="../images/fish_icon.gif" />
-															
-																
+
+                                                                </a>
 																<br>
 																<font size="2"><i></i>
 																</font>

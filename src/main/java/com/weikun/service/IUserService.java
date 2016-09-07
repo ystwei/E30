@@ -9,4 +9,5 @@ import com.weikun.model.Account;
 
 public interface IUserService {
     Account login( Account record);
+    int register(Account record);
 }

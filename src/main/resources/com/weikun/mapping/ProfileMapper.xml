@@ -3,7 +3,7 @@
 <mapper namespace="com.weikun.dao.ProfileMapper" >
   <resultMap id="BaseResultMap" type="com.weikun.model.Profile" >
     <id column="username" property="username" jdbcType="VARCHAR" />
-    <result column="langpref" property="langpref" jdbcType="VARCHAR" />
+    <result column="lang" property="lang" jdbcType="VARCHAR" />
     <result column="catid" property="catid" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -65,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    username, langpref, catid
+    username, lang, catid
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.weikun.model.ProfileExample" >
     select
@@ -82,7 +82,7 @@
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from profile
     where username = #{username,jdbcType=VARCHAR}
@@ -98,10 +98,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.weikun.model.Profile" >
-    insert into profile (username, langpref, catid
-      )
-    values (#{username,jdbcType=VARCHAR}, #{langpref,jdbcType=VARCHAR}, #{catid,jdbcType=VARCHAR}
-      )
+    insert into profile (username, catid, lang
+    )
+    values (#{username,jdbcType=VARCHAR},  #{catid,jdbcType=VARCHAR},#{lang,jdbcType=VARCHAR}
+    )
   </insert>
   <insert id="insertSelective" parameterType="com.weikun.model.Profile" >
     insert into profile
@@ -109,8 +109,8 @@
       <if test="username != null" >
         username,
       </if>
-      <if test="langpref != null" >
-        langpref,
+      <if test="lang != null" >
+        lang,
       </if>
       <if test="catid != null" >
         catid,
@@ -120,8 +120,8 @@
       <if test="username != null" >
         #{username,jdbcType=VARCHAR},
       </if>
-      <if test="langpref != null" >
-        #{langpref,jdbcType=VARCHAR},
+      <if test="lang != null" >
+        #{lang,jdbcType=VARCHAR},
       </if>
       <if test="catid != null" >
         #{catid,jdbcType=VARCHAR},
@@ -140,8 +140,8 @@
       <if test="record.username != null" >
         username = #{record.username,jdbcType=VARCHAR},
       </if>
-      <if test="record.langpref != null" >
-        langpref = #{record.langpref,jdbcType=VARCHAR},
+      <if test="record.lang != null" >
+        lang = #{record.lang,jdbcType=VARCHAR},
       </if>
       <if test="record.catid != null" >
         catid = #{record.catid,jdbcType=VARCHAR},
@@ -154,8 +154,8 @@
   <update id="updateByExample" parameterType="map" >
     update profile
     set username = #{record.username,jdbcType=VARCHAR},
-      langpref = #{record.langpref,jdbcType=VARCHAR},
-      catid = #{record.catid,jdbcType=VARCHAR}
+    lang = #{record.lang,jdbcType=VARCHAR},
+    catid = #{record.catid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -163,8 +163,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.weikun.model.Profile" >
     update profile
     <set >
-      <if test="langpref != null" >
-        langpref = #{langpref,jdbcType=VARCHAR},
+      <if test="lang != null" >
+        lang = #{lang,jdbcType=VARCHAR},
       </if>
       <if test="catid != null" >
         catid = #{catid,jdbcType=VARCHAR},
@@ -174,8 +174,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.weikun.model.Profile" >
     update profile
-    set langpref = #{langpref,jdbcType=VARCHAR},
-      catid = #{catid,jdbcType=VARCHAR}
+    set lang = #{lang,jdbcType=VARCHAR},
+    catid = #{catid,jdbcType=VARCHAR}
     where username = #{username,jdbcType=VARCHAR}
   </update>
 </mapper>

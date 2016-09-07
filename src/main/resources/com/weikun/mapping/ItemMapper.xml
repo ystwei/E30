@@ -13,7 +13,15 @@
     <result column="attr3" property="attr3" jdbcType="VARCHAR" />
     <result column="attr4" property="attr4" jdbcType="VARCHAR" />
     <result column="attr5" property="attr5" jdbcType="VARCHAR" />
+    <association property="product" column="productid" select="queryProByItem">
+
+    </association>
+
   </resultMap>
+
+  <select id="queryProByItem" resultMap="com.weikun.dao.ProductMapper.BaseResultMap">
+    SELECT * from product where productid=#{productid,jdbcType=VARCHAR}
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
