@@ -39,7 +39,7 @@
 															<td>
 																<a href="${ppath}/pet/queryP/c/FISH">
 															<img
-																		border="0" src="../images/fish_icon.gif" />
+																		border="0" src="${ppath}/images/fish_icon.gif" />
 
                                                                 </a>
 																<br>
@@ -51,7 +51,7 @@
 															<td>
 																<a
 																	href=""><img
-																		border="0" src="../images/dogs_icon.gif" />
+																		border="0" src="${ppath}/images/dogs_icon.gif" />
 																</a>
 																<br>
 																<font size="2"><i></i>
@@ -62,7 +62,7 @@
 															<td>
 																<a
 																	href=""><img
-																		border="0" src="../images/cats_icon.gif" />
+																		border="0" src="${ppath}/images/cats_icon.gif" />
 																</a>
 																<br>
 																<font size="2"><i></i>
@@ -73,7 +73,7 @@
 															<td>
 																<a
 																	href=""><img
-																		border="0" src="../images/reptiles_icon.gif" />
+																		border="0" src="${ppath}/images/reptiles_icon.gif" />
 																</a>
 																<br>
 																<font size="2"><i></i>
@@ -84,7 +84,7 @@
 															<td>
 																<a
 																	href=""><img
-																		border="0" src="../images/birds_icon.gif" />
+																		border="0" src="${ppath}/images/birds_icon.gif" />
 																</a>
 																<br>
 																<font size="2"><i></i>
@@ -117,7 +117,7 @@
 										<area alt="Birds" coords="280,180,350,250"
 											href="" shape="RECT" />
 									</map>
-									<img border="0" height="355" src="../images/splash.gif"
+									<img border="0" height="355" src="${ppath}/images/splash.gif"
 										align="center" usemap="#estoremap" width="350" />
 								</td>
 							</tr>
