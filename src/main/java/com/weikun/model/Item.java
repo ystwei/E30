@@ -1,11 +1,13 @@
 package com.weikun.model;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class Item {
     private String itemid;
     private Product product;
     private String productid;
+
 
     private BigDecimal listprice;
 

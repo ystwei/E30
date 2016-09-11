@@ -2,10 +2,11 @@ package com.weikun.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 public class Orders {
     private Integer orderid;
-
+    private List<Cart> clist;
     private Date orderdate;
 
     private String userid;
@@ -92,5 +93,13 @@ public class Orders {
 
     public void setTotalprice(BigDecimal totalprice) {
         this.totalprice = totalprice;
+    }
+
+    public List<Cart> getClist() {
+        return clist;
+    }
+
+    public void setClist(List<Cart> clist) {
+        this.clist = clist;
     }
 }

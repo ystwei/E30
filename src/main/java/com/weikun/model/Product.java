@@ -7,6 +7,8 @@ public class Product {
     private Category category;
     private List<Item> ilist;
     private String catid;
+    private String pic;
+
 
     private String name;
 
@@ -58,5 +60,13 @@ public class Product {
 
     public void setIlist(List<Item> ilist) {
         this.ilist = ilist;
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
     }
 }

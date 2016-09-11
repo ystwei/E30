@@ -11,7 +11,17 @@
     <result column="cardno" property="cardno" jdbcType="VARCHAR" />
     <result column="cardtype" property="cardtype" jdbcType="VARCHAR" />
     <result column="totalprice" property="totalprice" jdbcType="DECIMAL" />
+
+    <collection property="clist"
+                javaType="java.util.ArrayList" ofType="com.weikun.model.Cart"
+                column="orderid" select="queryCartByOrderid"/>
+
   </resultMap>
+  <select id="queryCartByOrderid" resultMap="com.weikun.dao.CartMapper.BaseResultMap">
+      select *
+      from cart
+      where orderid=#{orderid,jdbcType=INTEGER}
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -263,12 +273,6 @@
   <update id="updateByPrimaryKey" parameterType="com.weikun.model.Orders" >
     update orders
     set orderdate = #{orderdate,jdbcType=DATE},
-      userid = #{userid,jdbcType=VARCHAR},
-      shipaddr = #{shipaddr,jdbcType=VARCHAR},
-      shipcity = #{shipcity,jdbcType=VARCHAR},
-      shipname = #{shipname,jdbcType=VARCHAR},
-      cardno = #{cardno,jdbcType=VARCHAR},
-      cardtype = #{cardtype,jdbcType=VARCHAR},
       totalprice = #{totalprice,jdbcType=DECIMAL}
     where orderid = #{orderid,jdbcType=INTEGER}
   </update>

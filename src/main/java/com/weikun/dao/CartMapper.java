@@ -3,8 +3,10 @@ package com.weikun.dao;
 import com.weikun.model.Cart;
 import com.weikun.model.CartExample;
 import com.weikun.model.CartKey;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
+import java.util.Map;
 
 public interface CartMapper {
     int countByExample(CartExample example);
@@ -28,4 +30,8 @@ public interface CartMapper {
     int updateByPrimaryKeySelective(Cart record);
 
     int updateByPrimaryKey(Cart record);
+
+    public List<Cart> addCart5(Map map);
+    public void updateCart5(Map map);
+
 }

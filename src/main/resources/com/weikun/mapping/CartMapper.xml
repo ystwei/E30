@@ -5,7 +5,54 @@
     <id column="orderid" property="orderid" jdbcType="INTEGER" />
     <id column="itemid" property="itemid" jdbcType="VARCHAR" />
     <result column="quantity" property="quantity" jdbcType="INTEGER" />
+    <association property="orders" column="orderid" select="queryOrderByOrderid">
+
+    </association>
+
+
+    <association property="item" column="itemid" select="queryItemByItemid">
+
+    </association>
   </resultMap>
+
+  <select id="queryItemByItemid" resultMap="com.weikun.dao.ItemMapper.BaseResultMap">
+    SELECT * from item where itemid=#{itemid,jdbcType=INTEGER}
+  </select>
+
+  <select id="queryOrderByOrderid" resultMap="com.weikun.dao.OrdersMapper.BaseResultMap">
+    SELECT * from orders where orderid=#{orderid,jdbcType=INTEGER}
+  </select>
+
+  <select id="addCart5" statementType="CALLABLE"
+          resultMap="com.weikun.dao.CartMapper.BaseResultMap"
+          parameterType="java.util.Map">
+
+    <![CDATA[
+          call addCart5(
+
+            #{in_itemid , mode=IN ,jdbcType=VARCHAR},
+	        #{in_quantity ,mode=IN ,jdbcType=INTEGER}
+
+          )
+
+        ]]>
+  </select>
+
+  <select id="updateCart5" statementType="CALLABLE"
+
+          parameterType="java.util.Map">
+
+    <![CDATA[
+          call updateCart5(
+
+            #{in_itemid , mode=IN ,jdbcType=VARCHAR},
+            #{in_oid , mode=IN ,jdbcType=INTEGER},
+	        #{in_qty ,mode=IN ,jdbcType=INTEGER}
+
+          )
+
+        ]]>
+  </select>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >

@@ -6,6 +6,7 @@
     <result column="catid" property="catid" jdbcType="VARCHAR" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="descn" property="descn" jdbcType="VARCHAR" />
+    <result column="pic" property="pic" jdbcType="VARCHAR" />
 
     <association property="category" column="catid" select="queryCatByPro">
 

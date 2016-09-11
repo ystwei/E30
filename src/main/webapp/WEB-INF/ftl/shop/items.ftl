@@ -44,11 +44,11 @@
 		<#list ilist as item>
 		<tr bgcolor="#FFFF88">
 			<td>
-				<b> <a href="viewitem.xhtml">${item.product.productid}</a>
+				<b> ${item.product.productid}
 				</b>
 			</td>
 			<td>
-			${item.itemid}
+                <a href="${ppath}/pet/queryI/i/${item.itemid}">${item.itemid}</a>
 			</td>
 			<td>
 			${item.listprice}
