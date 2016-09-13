@@ -42,41 +42,45 @@ orders
 
     )
     begin
-    	set @id:=0;#orderid
-    	set @date:='';#orderdate
-    	set @iid:='';#itemid
-    	set @qty:=0;#quantity
-    	#1先取订单编号
-    	select orderid ,orderdate into @id,@date
-    	from orders
-    	order by orderid desc
-    	limit 1;
-    	#2判断其@date是否为空，如果为空代表还没提交还可以在当前订单下继续购买
-    	#如果不为空，代表已经提交了，需要生产新订单编号
-    	if @date!=null then
-    		set @id:=@id+1;
-    		insert into orders(orderid) values(@id);
-    	else
-    		#对购物车标修改
-    		#3如果itemid相等，代表当前商品是老商品，只需要改数量
-    		#否则是新商品，重新加记录
-    		select itemid,quantity into @iid,@qty
-    		from cart c
-    		where c.orderid=@id and
-    		      c.itemid=in_itemid;
-    		if @iid=null then
 
-    			insert into cart(orderid,itemid,quantity)
-    			values(@id,@iid,in_quantity);
+        	set @id:=0;#orderid
+        	set @date:='';#orderdate
+        	set @iid:='';#itemid
+        	set @qty:=0;#quantity
+        	#1先取订单编号
+        	select orderid ,orderdate into @id,@date
+        	from orders
+        	order by orderid desc
+        	limit 1;
+        	#2判断其@date是否为空，如果为空代表还没提交还可以在当前订单下继续购买
+        	#如果不为空，代表已经提交了，需要生产新订单编号
+        	if @date!='' then
+        		set @id:=@id+1;
+        		insert into orders(orderid) values(@id);
+        		#select 'Hello';
+        		#新订单形成后，下一句就是添加新的购物车
+        		insert into cart(orderid,itemid,quantity)
+        			values(@id,in_itemid,in_quantity);
+        	else
+        		#对购物车标修改
+        		#3如果itemid相等，代表当前商品是老商品，只需要改数量
+        		#否则是新商品，重新加记录
+        		select itemid,quantity into @iid,@qty
+        		from cart c
+        		where c.orderid=@id and
+        		      c.itemid=in_itemid;
+        		if @iid='' then
 
+        			insert into cart(orderid,itemid,quantity)
+        			values(@id,in_itemid,in_quantity);
 
-    		else
-    			call updateCart5(@iid,@id,@qty+in_quantity);
+        		else
+        			call updateCart5(@iid,@id,@qty+in_quantity);
 
+        		end if;
+        	end if;
+        	select * from cart where orderid=@id;
 
-    		end if;
-    	end if;
-    	select * from cart where orderid=@id;
     end $
     delimiter ;
 

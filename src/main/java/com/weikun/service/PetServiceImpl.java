@@ -37,7 +37,8 @@ public class PetServiceImpl implements  IPetService {
     }
 
     public List<Cart> addCart5(Map map) {
-        return ccdao.addCart5(map);
+        List<Cart> list=ccdao.addCart5(map);
+        return list;
     }
 
     public void updateCart5(Map map) {

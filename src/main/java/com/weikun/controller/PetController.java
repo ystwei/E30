@@ -76,7 +76,10 @@ public class PetController {
         CartKey ck=new CartKey();
         ck.setOrderid(Integer.parseInt(oid));
         ck.setItemid(iid);
-        List <Cart> clist=service.deleteByPrimaryKey(ck);
+        service.deleteByPrimaryKey(ck);
+        CartKey key=new CartKey();
+        key.setOrderid(Integer.parseInt(oid));
+        List <Cart> clist=service.queryCars(key);
         m.put("clist",clist);
         return "shop/cart.ftl";
     }
